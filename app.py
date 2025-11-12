@@ -11,8 +11,8 @@ from PIL import Image
 app = Flask(__name__)
 
 # Load ArcFace model
-print("🔄 Loading ArcFace model (buffalo_l)...")
-face_app = FaceAnalysis(name='buffalo_l')
+print("🔄 Loading ArcFace model (buffalo_s)...")
+face_app = FaceAnalysis(name='buffalo_s')
 face_app.prepare(ctx_id=0, det_size=(640, 640))
 print("✅ Model loaded successfully!")
 
@@ -29,7 +29,7 @@ def read_image(file_data):
 
 @app.route('/')
 def home():
-    return jsonify({"message": "Face Matching API using ArcFace (buffalo_l)"}), 200
+    return jsonify({"message": "Face Matching API using ArcFace (buffalo_s)"}), 200
 
 @app.route('/verify', methods=['POST'])
 def verify_face():
