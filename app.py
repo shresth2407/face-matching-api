@@ -6,6 +6,7 @@ import insightface
 from insightface.app import FaceAnalysis
 from io import BytesIO
 from PIL import Image
+import os
 
 # Initialize Flask
 app = Flask(__name__)
@@ -73,4 +74,5 @@ def verify_face():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=6000)
+    port = int(os.environ.get('PORT', 6000))
+    app.run(host='0.0.0.0', port=port)
